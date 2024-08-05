@@ -18,11 +18,13 @@
       {% if layer.colormap_id is not none %}"palette": {
         "id": "{{ layer.colormap_id }}"
       },{% endif %}
-      "projections": {
-        "geographic": {
-          "matrixSet": "{{ layer.matrix_set }}",
-          "source": "{{ layer.source_name }}"
-        }
+     "projections": {
+        {% for key, value in layer.projections.items() %}
+          "{{ key }}": {
+              "matrixSet": "{{ value.matrixSet }}",
+              "source": "{{ value.source }}"
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
       }
     }
   }

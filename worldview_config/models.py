@@ -2,6 +2,9 @@ from datetime import datetime
 
 from pydantic import BaseModel, Field, RootModel
 
+class Projection(BaseModel):
+    source: str
+    matrixSet: str
 
 class LayerConfig(BaseModel):
     id: str
@@ -12,8 +15,7 @@ class LayerConfig(BaseModel):
     title: str
     format: str
     colormap_id: str
-    matrix_set: str
-    source_name: str
+    projections: dict[str, Projection]
     start_date: datetime
     group: str = Field(default="overlays")
     description: str = Field(default="")
