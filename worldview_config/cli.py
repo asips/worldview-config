@@ -8,7 +8,7 @@ from worldview_config import models
 from worldview_config.merge import merge_config
 from worldview_config.render import render_templates
 
-app = typer.Typer(add_completion=False, no_args_is_help=True)
+app = typer.Typer(add_completion=False, no_args_is_help=True, pretty_exceptions_enable=False)
 state = {"verbose": False}
 
 

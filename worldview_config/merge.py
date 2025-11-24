@@ -63,6 +63,9 @@ def merge_json(target_path: Path, new_path: Path, category: str):
             target["sources"] |= new["sources"]
         case "features":
             target["features"] |= new["features"]
+        case "config":
+            target["wv-options-fetch"].extend(new["wv-options-fetch"])
+            target["wv-options-wmts"].extend(new["wv-options-wmts"])
         case "layer_order":
             target = merge_layer_order(target, new)
         case "measurements":

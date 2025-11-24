@@ -1,4 +1,5 @@
 sub_paths = {
+    "config": "release/config.json",
     "sources": "release/config/wv.json/sources.json",
     "features": "common/features.json",
     "layer_order": "common/config/wv.json/layerOrder.json",
